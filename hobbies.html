@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Hobbies - Isaiah Robles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="CSS/image-styles.css">
+    <style>
+        .hobby-detail-section {
+            padding: 100px 0 80px;
+            scroll-margin-top: 80px;
+        }
+        
+        .hobby-detail-section:nth-child(even) {
+            background: var(--sand-beige);
+        }
+        
+        .hobby-detail-section:nth-child(odd) {
+            background: var(--white);
+        }
+        
+        .hobby-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .hobby-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+        
+        .hobby-content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        
+        .hobby-media {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .hobby-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
+        
+        .hobby-media video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
+        
+        .hobby-media-caption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--medium-gray);
+            font-size: 1rem;
+        }
+        
+        .hobby-text {
+            padding: 2rem;
+        }
+        
+        .hobby-text h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hobby-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .hobby-story {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary-blue);
+        }
+        
+        .hobby-story h4 {
+            color: var(--forest-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hobby-story p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .hobby-importance {
+            background: linear-gradient(135deg, var(--accent-blue), var(--mint-green));
+            padding: 2rem;
+            border-radius: 15px;
+            color: var(--white);
+        }
+        
+        .hobby-importance h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .hobby-importance p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .page-intro {
+            text-align: center;
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sand-beige) 100%);
+        }
+        
+        .page-intro h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            background: linear-gradient(135deg, var(--primary-blue), var(--forest-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+        
+        .page-intro p {
+            font-size: 1.3rem;
+            color: var(--medium-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 768px) {
+            .hobby-content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .hobby-media {
+                order: -1;
+            }
+            
+            .hobby-detail-section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html" style="text-decoration: none; color: var(--primary-blue);">Isaiah Robles</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="hobbies.html" class="nav-link">Hobbies</a>
+                </li>
+                <li class="nav-item">
+                    <a href="discover.html" class="nav-link">Discover</a>
+                </li>
+                <li class="nav-item">
+                    <a href="career.html" class="nav-link">Career</a>
+                </li>
+                <li class="nav-item">
+                    <a href="resume.html" class="nav-link">Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a href="game.html" class="nav-link">Tetris</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Introduction -->
+    <section class="page-intro">
+        <div class="container">
+            <h1>My Hobbies & Interests</h1>
+            <p>These activities shape who I am and bring balance to my life. They teach me discipline, teamwork, and appreciation for the world around me.</p>
+        </div>
+    </section>
+
+    <!-- Running Section -->
+    <section id="running" class="hobby-detail-section">
+        <div class="container">
+            <div class="hobby-header">
+                <h2>Running</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="hobby-content-wrapper">
+                <div class="hobby-media">
+                    <img src="Images/Marathonpic1project.jpg" alt="Fargo Marathon">
+                    <p class="hobby-media-caption">Running the Fargo Marathon where I finished with a time of 1:30.</p>
+                </div>
+                
+                <div class="hobby-text">
+                    <h3>The Road to 1:30</h3>
+                    <div class="hobby-description">
+                        <p>Running has become one of my most cherished activities, transforming from a simple exercise into a passion that challenges me both physically and mentally. There's something incredibly meditative about hitting the pavement, feeling the rhythm of my breath, and pushing through barriers I once thought impossible.</p>
+                        <p>My running journey has taught me the value of consistency, patience, and setting ambitious goals. Every mile is a conversation with myself—sometimes it's a battle, sometimes it's a celebration, but it's always an opportunity to grow stronger.</p>
+                    </div>
+                    
+                    <div class="hobby-story">
+                        <h4>My Fargo Half Marathon Experience</h4>
+                        <p>The Fargo Half Marathon was a defining moment in my running journey. After months of training, early morning runs in the cold Duluth weather, and pushing through days when motivation was low, I finally crossed that finish line with a time of 1:30—a personal achievement I'm incredibly proud of.</p>
+                        <p>The race itself was unforgettable. The energy of thousands of runners, the support from the community lining the streets, and that final push to the finish line created a memory I'll carry with me forever. But what made it special wasn't just the time—it was the realization that I had set a challenging goal and had the discipline to see it through.</p>
+                        <p>Training for this marathon taught me lessons that extend far beyond running. I learned about pacing myself, listening to my body, and the importance of rest and recovery. These principles have translated into my academic and personal life, helping me manage stress and maintain balance.</p>
+                    </div>
+                    
+                    <div class="hobby-importance">
+                        <h4>Why Running Matters to Me</h4>
+                        <p>Running is more than just physical exercise—it's my time to disconnect, reflect, and recharge. In the midst of balancing financial planning coursework, studying for exams, and planning for my future, running provides a necessary mental break and clarity.</p>
+                        <p>It has also taught me resilience. Some days, the run feels impossible, but I've learned that pushing through those difficult moments builds character. This mental toughness has become invaluable, especially when facing challenging financial concepts or stressful deadlines.</p>
+                        <p>Perhaps most importantly, running keeps me grounded and connected to the present moment. While I spend a lot of time thinking about future financial security and planning, running reminds me to appreciate the journey and celebrate small victories along the way.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Sports Section -->
+    <section id="team-sports" class="hobby-detail-section">
+        <div class="container">
+            <div class="hobby-header">
+                <h2>Team Sports</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="hobby-content-wrapper">
+                <div class="hobby-text">
+                    <h3>Competition and Camaraderie</h3>
+                    <div class="hobby-description">
+                        <p>Team sports have always been a significant part of my life, providing a unique blend of competition, friendship, and personal growth. Whether it's soccer, basketball, or flag football, playing on a team teaches you lessons you can't learn anywhere else.</p>
+                        <p>The beauty of team sports lies in the balance between individual skill and collective effort. Every game is a lesson in communication, trust, and working toward a common goal—skills that translate directly to the professional world and life in general.</p>
+                    </div>
+                    
+                    <div class="hobby-story">
+                        <h4>A Memorable Moment</h4>
+                        <p>One of my most memorable experiences came during a Church Basketball League game. I found myself with the ball, facing off against a Division I athlete—someone whose skill level exceeded anything I'd encountered in recreational play.</p>
+                        <p>In that moment, with the game on the line, I had to decide whether to back down or rise to the challenge. I took the shot over him, and it was one of the most satisfying moments I've experienced in sports. It wasn't just about making the shot—it was about competing against the best and not being intimidated by someone's credentials or reputation.</p>
+                        <p>This experience taught me a valuable lesson about confidence and playing to your potential regardless of the competition. In life, whether it's applying for internships, networking with professionals, or pursuing opportunities, you can't let labels or perceived limitations hold you back. You have to take your shot.</p>
+                        <p>Beyond this single moment, my involvement in intramural soccer and basketball has created lasting friendships and provided a consistent outlet for stress relief. These games are where I can disconnect from academics, enjoy competition, and connect with teammates who share the same passion.</p>
+                    </div>
+                    
+                    <div class="hobby-importance">
+                        <h4>Why Team Sports Are Important to Me</h4>
+                        <p>Team sports provide structure and excitement in my weekly routine. They're scheduled commitments that force me to balance my time effectively, helping me become better at time management—a skill that's crucial for my academic success.</p>
+                        <p>Playing on teams has also developed my leadership and communication skills. Learning to work with different personalities, communicate during high-pressure situations, and support teammates through both wins and losses has shaped how I interact in group projects and professional settings.</p>
+                        <p>Most importantly, team sports remind me that success is rarely achieved alone. Just as in financial planning, where advisors work with clients as a team to achieve goals, sports teach the value of collaboration, trust, and shared achievement. These experiences continue to influence how I approach relationships, both personally and professionally.</p>
+                    </div>
+                </div>
+                
+                <div class="hobby-media">
+                    <img src="Images/Teamsport1.JPG" alt="Church Basketball League">
+                    <p class="hobby-media-caption">Shooting over a D1 athlete in a Church Basketball league</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outdoor Adventures Section -->
+    <section id="outdoor-adventures" class="hobby-detail-section">
+        <div class="container">
+            <div class="hobby-header">
+                <h2>Outdoor Adventures</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="hobby-content-wrapper">
+                <div class="hobby-media">
+                    <video controls>
+                        <source src="videos/Outdoorvid1.MOV" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="hobby-media-caption">Jumping into freezing water at Illgen falls</p>
+                </div>
+                
+                <div class="hobby-text">
+                    <h3>Embracing Nature's Challenges</h3>
+                    <div class="hobby-description">
+                        <p>Living in Duluth has opened my eyes to the incredible natural beauty and adventure opportunities that surround us. The North Shore of Lake Superior, with its rugged cliffs, pristine waterfalls, and vast forests, has become my playground and sanctuary.</p>
+                        <p>Outdoor adventures aren't just about the thrill—they're about connecting with nature, pushing personal boundaries, and creating memories that last a lifetime. Every hike, every cliff, every freezing-cold jump into a waterfall is a story I'll carry with me.</p>
+                    </div>
+                    
+                    <div class="hobby-story">
+                        <h4>The Illgen Falls Adventure</h4>
+                        <p>Illgen Falls will forever be etched in my memory for one reason: that freezing, exhilarating jump into its icy waters. Standing on the edge, looking down at the  cold water below, I felt that mix of excitement and apprehension that comes with pushing your comfort zone.</p>
+                        <p>The moment I hit the water, every nerve in my body jolted awake. The cold was shocking, but so was the rush of adrenaline and the pure joy of the experience. It wasn't just about jumping into cold water—it was about facing a challenge, trusting myself, and embracing the moment fully.</p>
+                        <p>This experience, and others like it, have taught me the importance of calculated risks and living in the moment. In a world where we're constantly planning for the future—especially in financial planning—it's crucial to remember to experience life fully in the present.</p>
+                        <p>Duluth's landscape has become my escape from the intensity of academic life. Whether it's hiking along the Superior Hiking Trail, exploring hidden waterfalls, or just finding a quiet spot to watch Lake Superior, these outdoor moments ground me and remind me of what truly matters.</p>
+                    </div>
+                    
+                    <div class="hobby-importance">
+                        <h4>Why Outdoor Adventures Matter to Me</h4>
+                        <p>Nature provides perspective. When I'm overwhelmed by financial planning concepts, internship applications, or the uncertainty of the future, spending time outdoors reminds me that some of the best things in life are free and immediate. The stress of exams seems smaller when you're standing at the edge of a waterfall or watching a sunset over Lake Superior.</p>
+                        <p>These adventures also teach me about risk and reward—concepts deeply relevant to my field of study. Every outdoor challenge requires assessing the situation, understanding the risks, and deciding whether the potential reward is worth it. This parallels financial planning, where we help clients evaluate opportunities and make informed decisions.</p>
+                        <p>Perhaps most importantly, outdoor adventures keep me connected to the present moment. As someone who spends significant time planning for the future, these experiences remind me to appreciate the journey, take calculated risks, and find joy in the unexpected moments that life offers.</p>
+                        <p>The natural beauty of Duluth isn't just a backdrop for my education—it's an integral part of my personal growth and a constant reminder to balance future planning with present living.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Isaiah Robles. All rights reserved.</p>
+                <p>Financial Planning Student | University of Minnesota Duluth</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

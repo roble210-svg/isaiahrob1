@@ -1,0 +1,89 @@
+/* Add to your existing CSS */
+
+/* Profile Image Styles */
+.profile-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+/* Hobby Images Styles */
+.hobby-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+/* Image Caption Styles */
+.image-caption {
+    font-size: 0.9rem;
+    color: var(--medium-gray);
+    text-align: center;
+    margin-top: 0.5rem;
+    font-style: italic;
+    line-height: 1.4;
+    padding: 0 1rem;
+}
+
+/* Hobby Image Container */
+.hobby-image {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Hero Image Container */
+.hero-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* About Image Styles */
+.about-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.about-img:hover {
+    transform: scale(1.02);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .profile-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .hobby-img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .hobby-img {
+        height: 180px;
+    }
+
+    .image-caption {
+        font-size: 0.8rem;
+    }
+}

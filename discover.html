@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover UMD & Duluth - Isaiah Robles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="CSS/image-styles.css">
+    <style>
+        .discover-section {
+            padding: 100px 0 80px;
+            scroll-margin-top: 80px;
+        }
+        
+        .discover-section:nth-child(even) {
+            background: var(--sand-beige);
+        }
+        
+        .discover-section:nth-child(odd) {
+            background: var(--white);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+        
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+        
+        .content-text {
+            padding: 2rem;
+        }
+        
+        .content-text h3 {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .content-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+        }
+        
+        .highlight-box {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary-blue);
+        }
+        
+        .highlight-box h4 {
+            color: var(--forest-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-box p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .highlight-box ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .highlight-box li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .content-media {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .content-media img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
+        
+        .content-media video {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 20px;
+        }
+        
+        .media-caption {
+            text-align: center;
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--medium-gray);
+            font-size: 1rem;
+        }
+        
+        .page-intro {
+            text-align: center;
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sand-beige) 100%);
+        }
+        
+        .page-intro h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            background: linear-gradient(135deg, var(--primary-blue), var(--forest-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+        
+        .page-intro p {
+            font-size: 1.3rem;
+            color: var(--medium-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .job-section {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .job-section h3 {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .job-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        
+        .job-logo {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .job-info {
+            flex: 1;
+        }
+        
+        .job-info h4 {
+            color: var(--forest-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .job-info p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .video-section {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .content-media {
+                order: -1;
+            }
+            
+            .discover-section {
+                padding: 60px 0;
+            }
+            
+            .job-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .job-logo {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html" style="text-decoration: none; color: var(--primary-blue);">Isaiah Robles</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="hobbies.html" class="nav-link">Hobbies</a>
+                </li>
+                <li class="nav-item">
+                    <a href="discover.html" class="nav-link">Discover</a>
+                </li>
+                <li class="nav-item">
+                    <a href="career.html" class="nav-link">Career</a>
+                </li>
+                <li class="nav-item">
+                    <a href="resume.html" class="nav-link">Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a href="game.html" class="nav-link">Tetris</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Introduction -->
+    <section class="page-intro">
+        <div class="container">
+            <h1>Discover UMD & Duluth</h1>
+            <p>My journey at the University of Minnesota Duluth and my love for this beautiful region</p>
+        </div>
+    </section>
+
+    <!-- Why UMD Section -->
+    <section id="why-umd" class="discover-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why I Chose University of Minnesota Duluth</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="content-wrapper">
+                <div class="content-text">
+                    <h3>Finding the Perfect Fit</h3>
+                    <div class="content-description">
+                        <p>Choosing the University of Minnesota Duluth was one of the most important decisions I've made, and it's proven to be the perfect choice for my academic and personal growth. When I was searching for the right university, I was looking for more than just a strong financial planning program—I wanted a place where I could thrive both academically and personally.</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>Academic Excellence</h4>
+                        <p>UMD's financial planning program stood out for its comprehensive curriculum and real-world application. The faculty here genuinely care about student success and bring practical industry experience into the classroom. The program's emphasis on both theoretical understanding and hands-on application aligns perfectly with my goal of becoming a financial planner who can truly help clients navigate their financial futures.</p>
+                        <p>The small class sizes have been invaluable, allowing for meaningful interactions with professors and peers. I've never felt like just a number here—instead, I'm part of a community that supports and challenges me to grow.</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>Personal Growth Opportunities</h4>
+                        <p>Beyond academics, UMD has provided countless opportunities for personal development. From intramural sports to campus organizations, I've been able to explore interests, build leadership skills, and form lasting friendships. The balance between academic rigor and campus life here is exactly what I needed.</p>
+                    </div>
+                </div>
+                
+                <div class="content-media">
+                    <img src="Images/UMD pic.jpg" alt="University of Minnesota Duluth Campus">
+                    <p class="media-caption">The beautiful UMD campus where I've found my academic home</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UMD Marketing Video Section -->
+    <section id="umd-video" class="discover-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>UMD Marketing Video</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="video-section">
+                <div class="video-container">
+                    <video controls>
+                        <source src="Images/Group marketing video.mov" type="video/quicktime">
+                        <source src="Images/Group marketing video.mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <p class="media-caption" style="margin-top: 1.5rem;">A 30-second marketing video showcasing what makes UMD special</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Duluth & Surrounding Area Section -->
+    <section id="duluth" class="discover-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What I Love About Duluth</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="content-wrapper">
+                <div class="content-media">
+                    <img src="Images/duluthnaturepic1.jpg" alt="Duluth Nature Scene">
+                    <p class="media-caption">The breathtaking natural beauty that surrounds Duluth</p>
+                </div>
+                
+                <div class="content-text">
+                    <h3>A Place Like No Other</h3>
+                    <div class="content-description">
+                        <p>Duluth has captured my heart in ways I never expected. When I first arrived, I was immediately struck by the stunning natural beauty and the unique character of this city. Now, after spending time here, I can't imagine having chosen anywhere else for my college experience.</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>Natural Beauty</h4>
+                        <p>Living in Duluth means being surrounded by some of the most beautiful landscapes in the country. Lake Superior, with its powerful presence and ever-changing moods, is a constant source of inspiration. The North Shore offers endless opportunities for adventure—from hiking the Superior Hiking Trail to exploring hidden waterfalls and scenic overlooks.</p>
+                        <p>I've spent countless hours exploring the trails, jumping into freezing waterfalls at Illgen Falls, and simply taking in the views. The natural environment here isn't just a backdrop—it's an integral part of the Duluth experience that has shaped my time here.</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>The Community</h4>
+                        <p>Duluth has a unique character—it's a city that feels both vibrant and peaceful. The community here is welcoming, and there's a genuine appreciation for the outdoors and active lifestyle. Whether it's running along the lakewalk, participating in community events, or simply enjoying the local coffee shops, Duluth offers a quality of life that's hard to match.</p>
+                        <p>The four seasons here each bring their own beauty, from the vibrant fall colors to the peaceful winter snowscapes. The city's connection to nature while still offering urban amenities creates the perfect balance for a college student.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Experiences & Campus Highlights -->
+    <section id="campus-highlights" class="discover-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Personal Experiences & Campus Highlights</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="content-wrapper">
+                <div class="content-text">
+                    <h3>Memories That Define My UMD Experience</h3>
+                    <div class="highlight-box">
+                        <h4>Academic Achievements</h4>
+                        <p>My time at UMD has been marked by significant academic growth. The financial planning program has challenged me to think critically about money management, investment strategies, and helping clients achieve their financial goals. The professors here don't just teach—they mentor, and that makes all the difference.</p>
+                        <p>Working on group projects and case studies has given me practical experience that I know will be invaluable in my career. The curriculum is designed to prepare students for real-world financial planning scenarios, and I've felt increasingly confident in my ability to help future clients navigate their financial journeys.</p>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>Campus Life & Activities</h4>
+                        <ul>
+                            <li><strong>Intramural Sports:</strong> Winning the intramural soccer championship with my team was an unforgettable experience. The camaraderie and competition have been highlights of my time here.</li>
+                            <li><strong>Running Community:</strong> Training for my half marathon while balancing coursework taught me valuable lessons about discipline and time management.</li>
+                            <li><strong>Outdoor Adventures:</strong> Exploring the North Shore with friends has created some of my most cherished memories, from hiking to cliff jumping at waterfalls.</li>
+                            <li><strong>Campus Events:</strong> UMD's vibrant campus life has provided countless opportunities to connect with peers and participate in events that enrich the college experience.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="highlight-box">
+                        <h4>What Makes UMD Special</h4>
+                        <p>What truly sets UMD apart is the sense of community. It's large enough to offer diverse opportunities and resources, but small enough that you don't feel lost in the crowd. The support from faculty, staff, and fellow students creates an environment where you can truly thrive.</p>
+                        <p>The combination of academic excellence, beautiful location, and strong community has made my UMD experience everything I hoped for and more. I'm grateful for the opportunities I've had here and excited about the foundation this university has provided for my future career in financial planning.</p>
+                    </div>
+                </div>
+                
+                <div class="content-media">
+                    <img src="Images/naturepic2.jpg" alt="Duluth Nature Adventure">
+                    <p class="media-caption">Exploring the natural beauty that makes Duluth and UMD special</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Isaiah Robles. All rights reserved.</p>
+                <p>Financial Planning Student | University of Minnesota Duluth</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

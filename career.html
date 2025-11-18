@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Interests - Isaiah Robles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="CSS/image-styles.css">
+    <style>
+        .career-section {
+            padding: 100px 0 80px;
+            scroll-margin-top: 80px;
+        }
+        
+        .career-section:nth-child(even) {
+            background: var(--sand-beige);
+        }
+        
+        .career-section:nth-child(odd) {
+            background: var(--white);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+        
+        .page-intro {
+            text-align: center;
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sand-beige) 100%);
+        }
+        
+        .page-intro h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            background: linear-gradient(135deg, var(--primary-blue), var(--forest-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+        
+        .page-intro p {
+            font-size: 1.3rem;
+            color: var(--medium-gray);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .company-section {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .company-header {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        .company-logo {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .company-header-info h3 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary-blue);
+        }
+        
+        .contact-info h4 {
+            color: var(--forest-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-info ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .contact-info li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--dark-gray);
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .contact-info li:before {
+            content: "•";
+            color: var(--secondary-blue);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .contact-info a {
+            color: var(--secondary-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-blue);
+            text-decoration: underline;
+        }
+        
+        .info-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--forest-green);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-box h4 {
+            color: var(--forest-green);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .info-box p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+        }
+        
+        .info-box ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .info-box li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--dark-gray);
+            margin-bottom: 0.5rem;
+        }
+        
+        .skills-alignment {
+            background: linear-gradient(135deg, var(--accent-blue), var(--mint-green));
+            padding: 2rem;
+            border-radius: 15px;
+            color: var(--white);
+            margin-top: 2rem;
+        }
+        
+        .skills-alignment h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+        
+        .skills-alignment p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .skills-alignment ul {
+            margin-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .skills-alignment li {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .company-header {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .company-logo {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+            
+            .career-section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html" style="text-decoration: none; color: var(--primary-blue);">Isaiah Robles</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="hobbies.html" class="nav-link">Hobbies</a>
+                </li>
+                <li class="nav-item">
+                    <a href="discover.html" class="nav-link">Discover</a>
+                </li>
+                <li class="nav-item">
+                    <a href="career.html" class="nav-link">Career</a>
+                </li>
+                <li class="nav-item">
+                    <a href="resume.html" class="nav-link">Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a href="game.html" class="nav-link">Tetris</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Introduction -->
+    <section class="page-intro">
+        <div class="container">
+            <h1>Career Interests</h1>
+            <p>Two companies where I aspire to build my financial planning career and make a meaningful impact</p>
+        </div>
+    </section>
+
+    <!-- Aldveron Section -->
+    <section id="aldveron" class="career-section">
+        <div class="container">
+            <div class="company-section">
+                <div class="company-header">
+                    <div>
+                        <img src="Images/Aldveron.png" alt="Aldveron Logo" class="company-logo">
+                    </div>
+                    <div class="company-header-info">
+                        <h3>Aldveron</h3>
+                        <p style="font-size: 1.1rem; color: var(--medium-gray);">Financial Planning Firm</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h4>Complete Contact Information</h4>
+                    <ul>
+                        <li><strong>Address:</strong> 4055 41st Avenue South
+                            Fargo, North Dakota 58104, USA</li>
+                        <li><strong>Phone:</strong> 1 (701) 251-0223</li>
+                        <li><strong>Email:</strong> dna@aldevron.com</li>
+                        <li><strong>Website:</strong> <a href="https://www.aldveron.com" target="_blank">www.aldveron.com</a></li>
+                        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/aldveron" target="_blank">Aldveron LinkedIn</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Why Interested -->
+                <div class="info-box">
+                    <h4>Why I'm Interested in This Opportunity</h4>
+                    <p>Aldveron represents the kind of innovative financial planning firm where I want to launch my career. The company's commitment to client-centered service and cutting-edge financial strategies aligns perfectly with my vision of helping people achieve their financial goals.</p>
+                    <p>What draws me to Aldveron is their reputation for comprehensive financial planning that considers both immediate needs and long-term security. Their approach to creating personalized financial plans resonates with my belief that financial planning should be tailored to each individual's unique situation and goals.</p>
+                    <p>I'm particularly interested in Aldveron's culture of continuous learning and professional development. As someone who is passionate about growing in the financial planning field, I would value the opportunity to work with experienced advisors and learn from their expertise while contributing fresh perspectives and dedication to client service.</p>
+                    <p>Working at Aldveron would allow me to apply the knowledge I've gained at UMD while continuing to develop the skills necessary to help clients navigate complex financial decisions. I'm excited about the possibility of joining a team that values both professional excellence and meaningful client relationships.</p>
+                    <p>Whether it's an internship opportunity or an entry-level position, I'm eager to contribute to Aldveron's mission of providing exceptional financial planning services while building my expertise in the field.</p>
+                </div>
+                
+                <!-- Qualifications -->
+                <div class="info-box">
+                    <h4>What Makes Me Qualified for This Position</h4>
+                    <p>My educational background and personal experiences have prepared me well for a role at Aldveron:</p>
+                    <ul>
+                        <li><strong>Academic Excellence:</strong> I'm currently pursuing a degree in Financial Planning at the University of Minnesota Duluth, where I've gained comprehensive knowledge in money management, investment strategies, and client financial planning processes.</li>
+                        <li><strong>Critical Thinking:</strong> My coursework has challenged me to think critically about financial planning scenarios, helping clients balance present needs with future security—a core principle that aligns with Aldveron's approach.</li>
+                        <li><strong>Team Collaboration:</strong> Through group projects and case studies at UMD, I've developed strong collaboration skills that would be valuable in working with Aldveron's team of advisors.</li>
+                        <li><strong>Time Management:</strong> Balancing rigorous coursework, intramural sports, training for half marathons, and maintaining an active lifestyle has taught me exceptional time management skills—essential for managing multiple clients and meeting deadlines.</li>
+                        <li><strong>Communication Skills:</strong> My involvement in team sports, campus activities, and group projects has honed my ability to communicate effectively with diverse groups of people, which is crucial for client relationships.</li>
+                        <li><strong>Discipline and Consistency:</strong> Training for and completing a half marathon in 1:30 demonstrates the discipline and consistency needed to succeed in financial planning, where long-term commitment to client goals is essential.</li>
+                        <li><strong>Problem-Solving:</strong> My analytical mindset, developed through financial planning coursework and real-world problem-solving in various contexts, would allow me to help clients navigate complex financial decisions.</li>
+                        <li><strong>Passion for Financial Planning:</strong> My genuine interest in understanding money flow and helping others plan for the future while maintaining healthy present lifestyles drives my commitment to this field.</li>
+                    </ul>
+                </div>
+                
+                <!-- Skills Alignment -->
+                <div class="skills-alignment">
+                    <h4>How My Skills and Interests Align with Aldveron's Needs</h4>
+                    <p>My background and interests directly align with what Aldveron seeks in their team members:</p>
+                    <ul>
+                        <li><strong>Client-Centered Approach:</strong> My passion for helping others achieve their financial goals aligns perfectly with Aldveron's client-centered service model. I understand that financial planning is deeply personal and requires understanding each client's unique situation.</li>
+                        <li><strong>Continuous Learning:</strong> My commitment to growth and learning matches Aldveron's culture of professional development. I'm eager to learn from experienced advisors and continuously improve my skills.</li>
+                        <li><strong>Comprehensive Planning:</strong> My understanding of the balance between present lifestyle and future security aligns with Aldveron's comprehensive approach to financial planning.</li>
+                        <li><strong>Team Collaboration:</strong> My experience working in team environments—from sports to group projects—prepares me to collaborate effectively with Aldveron's team of financial advisors.</li>
+                        <li><strong>Attention to Detail:</strong> The analytical nature of financial planning coursework and my disciplined approach to personal goals demonstrate the attention to detail necessary for accurate financial planning.</li>
+                        <li><strong>Long-Term Perspective:</strong> My ability to set long-term goals (like training for a marathon) and maintain consistency in achieving them demonstrates the kind of long-term thinking that's essential in financial planning.</li>
+                        <li><strong>Innovative Thinking:</strong> My interest in understanding how money flows and is managed in different contexts shows the innovative thinking that would contribute to Aldveron's cutting-edge financial strategies.</li>
+                        <li><strong>Professional Growth:</strong> My eagerness to grow professionally and contribute fresh perspectives aligns with Aldveron's values of continuous improvement and excellence.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wells Fargo Section -->
+    <section id="wells-fargo" class="career-section">
+        <div class="container">
+            <div class="company-section">
+                <div class="company-header">
+                    <div>
+                        <img src="Images/Well fargo.jpg" alt="Wells Fargo Logo" class="company-logo">
+                    </div>
+                    <div class="company-header-info">
+                        <h3>Wells Fargo</h3>
+                        <p style="font-size: 1.1rem; color: var(--medium-gray);">Financial Services & Planning</p>
+                    </div>
+                </div>
+                
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <h4>Complete Contact Information</h4>
+                    <ul>
+                        <li><strong>Corporate Address:</strong> 420 Montgomery Street, San Francisco, CA 94104</li>
+                        <li><strong>Phone:</strong> 1-800-869-3557</li>
+                        <li><strong>Email:</strong> BoardCommunications@wellsfargo.com</li>
+                        <li><strong>Website:</strong> <a href="https://www.wellsfargo.com" target="_blank">www.wellsfargo.com</a></li>
+                        <li><strong>Careers Website:</strong> <a href="https://www.wellsfargojobs.com" target="_blank">www.wellsfargojobs.com</a></li>
+                        <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/wells-fargo" target="_blank">Wells Fargo LinkedIn</a></li>
+                        <li><strong>Student Programs:</strong> <a href="https://www.wellsfargojobs.com/university-recruiting" target="_blank">University Recruiting Programs</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Why Interested -->
+                <div class="info-box">
+                    <h4>Why I'm Interested in This Opportunity</h4>
+                    <p>Wells Fargo offers an incredible opportunity to work within one of the nation's largest financial institutions while still providing personalized financial planning services. The company's extensive resources and comprehensive approach to financial services would provide an excellent foundation for my career in financial planning.</p>
+                    <p>What attracts me to Wells Fargo is their commitment to helping clients succeed financially. The company's diverse range of financial products and services, combined with their focus on building long-term relationships with clients, creates an environment where I could make a meaningful impact.</p>
+                    <p>I'm particularly drawn to Wells Fargo's professional development opportunities. The training programs, mentorship opportunities, and potential for career growth would allow me to continuously develop my skills while serving clients. The company's reputation for excellence and their commitment to helping clients achieve their financial goals aligns perfectly with my career aspirations.</p>
+                    <p>Working at Wells Fargo would provide me with the opportunity to work with a diverse client base and learn about various financial planning strategies. The company's resources and support systems would enable me to provide comprehensive financial planning services while continuing to grow professionally.</p>
+                    <p>Whether through an internship program, entry-level position, or their university recruiting program, I'm excited about the possibility of contributing to a team that is dedicated to helping clients achieve financial success. Wells Fargo's size and resources would provide unparalleled learning opportunities while their focus on client relationships would allow me to make a real difference in people's financial lives.</p>
+                </div>
+                
+                <!-- Qualifications -->
+                <div class="info-box">
+                    <h4>What Makes Me Qualified for This Position</h4>
+                    <p>My qualifications make me a strong candidate for opportunities at Wells Fargo:</p>
+                    <ul>
+                        <li><strong>Financial Planning Education:</strong> My current studies at UMD in Financial Planning provide a solid foundation in financial analysis, investment strategies, and client relationship management—all essential skills for roles at Wells Fargo.</li>
+                        <li><strong>Analytical Skills:</strong> My coursework has developed strong analytical abilities, enabling me to assess financial situations, identify opportunities, and develop comprehensive financial plans.</li>
+                        <li><strong>Client Relationship Management:</strong> Through various experiences, I've developed strong interpersonal skills and the ability to build trust with others—critical for financial planning roles where client relationships are paramount.</li>
+                        <li><strong>Time Management & Organization:</strong> Successfully balancing academics, athletics, and personal goals demonstrates my ability to manage multiple priorities effectively—essential for handling multiple clients and meeting deadlines.</li>
+                        <li><strong>Team Leadership:</strong> My experience as a team member in intramural sports and group projects has developed leadership skills that would be valuable in collaborative financial planning environments.</li>
+                        <li><strong>Goal-Oriented Mindset:</strong> My achievement of running a half marathon in 1:30 demonstrates the goal-oriented mindset and perseverance needed to help clients achieve their financial objectives.</li>
+                        <li><strong>Communication Excellence:</strong> My ability to communicate complex concepts clearly—developed through presentations and group work—would be valuable in explaining financial planning strategies to clients.</li>
+                        <li><strong>Ethical Decision-Making:</strong> My commitment to helping others build secure financial futures while maintaining healthy present lifestyles reflects the ethical approach to financial planning that Wells Fargo values.</li>
+                        <li><strong>Adaptability:</strong> My diverse experiences and willingness to take on challenges demonstrate adaptability—important in a dynamic financial services environment.</li>
+                        <li><strong>Passion for Financial Services:</strong> My genuine interest in understanding money flow and financial management shows a true passion for the field that would drive my success at Wells Fargo.</li>
+                    </ul>
+                </div>
+                
+                <!-- Skills Alignment -->
+                <div class="skills-alignment">
+                    <h4>How My Skills and Interests Align with Wells Fargo's Needs</h4>
+                    <p>My background directly addresses Wells Fargo's needs for talented, client-focused financial planning professionals:</p>
+                    <ul>
+                        <li><strong>Client-First Approach:</strong> My passion for helping others achieve their financial goals aligns with Wells Fargo's commitment to putting clients first. I understand that financial planning is about more than numbers—it's about helping people build secure futures.</li>
+                        <li><strong>Comprehensive Financial Services:</strong> My education in financial planning prepares me to understand and work with Wells Fargo's diverse range of financial products and services.</li>
+                        <li><strong>Professional Development Mindset:</strong> My eagerness to learn and grow professionally aligns with Wells Fargo's emphasis on continuous learning and career development.</li>
+                        <li><strong>Relationship Building:</strong> My experience working with diverse teams and building relationships in various contexts prepares me to build strong client relationships at Wells Fargo.</li>
+                        <li><strong>Long-Term Perspective:</strong> My ability to set and achieve long-term personal goals demonstrates the kind of long-term thinking that's essential in financial planning and aligns with Wells Fargo's approach to client relationships.</li>
+                        <li><strong>Diversity and Inclusion:</strong> My experiences working with diverse groups and my appreciation for different perspectives align with Wells Fargo's commitment to diversity and inclusion.</li>
+                        <li><strong>Innovation and Technology:</strong> My interest in understanding how money flows in modern contexts shows an openness to innovative financial solutions that Wells Fargo offers.</li>
+                        <li><strong>Ethical Standards:</strong> My commitment to ethical financial planning practices aligns with Wells Fargo's values and regulatory requirements.</li>
+                        <li><strong>Team Collaboration:</strong> My experience as a team player in sports and group projects prepares me to work effectively within Wells Fargo's collaborative environment.</li>
+                        <li><strong>Results-Oriented:</strong> My track record of achieving challenging goals (like the half marathon) demonstrates the results-oriented approach that Wells Fargo values in helping clients achieve their financial objectives.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary Section -->
+    <section class="career-section">
+        <div class="container">
+            <div class="info-box" style="max-width: 900px; margin: 0 auto;">
+                <h4 style="text-align: center; color: var(--primary-blue); font-size: 2rem;">My Vision for the Future</h4>
+                <p>Both Aldveron and Wells Fargo represent different but equally valuable paths in financial planning. Whether I find myself at a specialized firm like Aldveron or a major institution like Wells Fargo, my goal remains the same: to help clients build secure financial futures while maintaining healthy, fulfilling lives in the present.</p>
+                <p>My time at UMD has prepared me well for either path, and I'm excited about the opportunity to apply what I've learned to help real clients achieve their financial goals. The foundation I've built here—both academically and personally—has given me the confidence and skills to succeed in either environment.</p>
+                <p>I'm ready to bring my passion for financial planning, my commitment to client service, and my dedication to continuous learning to either organization. Whether through an internship, entry-level position, or professional development program, I'm eager to begin contributing to a team that shares my values and vision for helping others achieve financial success.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Isaiah Robles. All rights reserved.</p>
+                <p>Financial Planning Student | University of Minnesota Duluth</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

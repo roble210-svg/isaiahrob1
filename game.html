@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris - Isaiah Robles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, var(--cream) 0%, var(--sand-beige) 100%);
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+
+        .game-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .game-header h1 {
+            background: linear-gradient(135deg, var(--primary-blue), var(--forest-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .game-wrapper {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .game-board-wrapper {
+            position: relative;
+        }
+
+        #gameBoard {
+            border: 4px solid var(--primary-blue);
+            background: var(--dark-gray);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-info {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            min-width: 250px;
+        }
+
+        .info-section {
+            margin-bottom: 2rem;
+        }
+
+        .info-section h3 {
+            color: var(--primary-blue);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+            padding-bottom: 0.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            font-size: 1.1rem;
+        }
+
+        .info-label {
+            color: var(--medium-gray);
+            font-weight: 500;
+        }
+
+        .info-value {
+            color: var(--dark-gray);
+            font-weight: 600;
+        }
+
+        .controls {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+        }
+
+        .controls h4 {
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .control-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--dark-gray);
+        }
+
+        .control-key {
+            background: var(--primary-blue);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-right: 0.75rem;
+            min-width: 80px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .game-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-game {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: var(--body-font);
+        }
+
+        .btn-start {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            color: var(--white);
+        }
+
+        .btn-start:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
+        }
+
+        .btn-pause {
+            background: var(--warm-brown);
+            color: var(--white);
+        }
+
+        .btn-pause:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(146, 64, 14, 0.3);
+        }
+
+        .btn-reset {
+            background: var(--forest-green);
+            color: var(--white);
+        }
+
+        .btn-reset:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(6, 95, 70, 0.3);
+        }
+
+        .game-over {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.98);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+            display: none;
+        }
+
+        .game-over.active {
+            display: block;
+        }
+
+        .game-over h2 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .game-over p {
+            color: var(--dark-gray);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .next-piece-preview {
+            width: 120px;
+            height: 120px;
+            border: 2px solid var(--light-gray);
+            border-radius: 8px;
+            background: var(--sand-beige);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+
+        #nextPieceCanvas {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .game-wrapper {
+                flex-direction: column;
+            }
+
+            .game-info {
+                width: 100%;
+            }
+
+            #gameBoard {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html" style="text-decoration: none; color: var(--primary-blue);">Isaiah Robles</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#about" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="hobbies.html" class="nav-link">Hobbies</a>
+                </li>
+                <li class="nav-item">
+                    <a href="discover.html" class="nav-link">Discover</a>
+                </li>
+                <li class="nav-item">
+                    <a href="career.html" class="nav-link">Career</a>
+                </li>
+                <li class="nav-item">
+                    <a href="resume.html" class="nav-link">Resume</a>
+                </li>
+                <li class="nav-item">
+                    <a href="game.html" class="nav-link">Tetris</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="game-container">
+        <div class="game-header">
+            <h1>Tetris</h1>
+            <p>Classic puzzle game - Clear lines to score points!</p>
+        </div>
+
+        <div class="game-wrapper">
+            <div class="game-board-wrapper">
+                <canvas id="gameBoard" width="400" height="800"></canvas>
+                <div class="game-over" id="gameOver">
+                    <h2>Game Over!</h2>
+                    <p>Final Score: <span id="finalScore">0</span></p>
+                    <p>Level: <span id="finalLevel">1</span></p>
+                    <button class="btn-game btn-start" onclick="resetGame()">Play Again</button>
+                </div>
+            </div>
+
+            <div class="game-info">
+                <div class="info-section">
+                    <h3>Score</h3>
+                    <div class="info-item">
+                        <span class="info-label">Score:</span>
+                        <span class="info-value" id="score">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Lines:</span>
+                        <span class="info-value" id="lines">0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Level:</span>
+                        <span class="info-value" id="level">1</span>
+                    </div>
+                </div>
+
+                <div class="info-section">
+                    <h3>Next Piece</h3>
+                    <div class="next-piece-preview">
+                        <canvas id="nextPieceCanvas" width="100" height="100"></canvas>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <h4>Controls</h4>
+                    <div class="control-item">
+                        <span class="control-key">← →</span>
+                        <span>Move</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="control-key">↓</span>
+                        <span>Soft Drop</span>
+                    </div>
+                    <div class="control-item">
+                        <span class="control-key">↑ or Space</span>
+                        <span>Rotate</span>
+                    </div>
+                </div>
+
+                <div class="game-buttons">
+                    <button class="btn-game btn-start" id="startBtn" onclick="startGame()">Start</button>
+                    <button class="btn-game btn-pause" id="pauseBtn" onclick="togglePause()">Pause</button>
+                    <button class="btn-game btn-reset" onclick="resetGame()">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="bgMusic1">
+        <source src="audio/bgm09 • Blockids OST ブロキッズ [41e071C8o68].mp3" type="audio/mpeg">
+    </audio>
+    <audio id="bgMusic2">
+        <source src="audio/Isamu Ohira - Light Velocity.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+    <script src="JS/game.js"></script>
+</body>
+</html>
+
